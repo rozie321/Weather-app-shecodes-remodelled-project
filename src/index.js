@@ -2,9 +2,20 @@ function refreshWeather(response){
     let temperatureElement = document.querySelector("#current-temperature-value");
     let temperature = response.data.temperature.current;
     let cityElement = document.querySelector("#current-city");
-
+    let descriptionElement=document.querySelector("#description");
+    let humidityElement=document.querySelector("#humidity");
+    let windSpeedElement=document.querySelector("#wind-speed");
+    let timeElement =document.querySelector("#time")
+    
+    
     cityElement.innerHTML=response.data.city;
+    timeElement.innerHTML="Tuesday 14:49";
     temperatureElement.innerHTML = Math.round(temperature);
+    descriptionElement.innerHTML=response.data.condition.description;
+    humidityElement.innerHTML=`${response.data.temperature.humidity}% `;
+    windSpeedElement.innerHTML=`${response.data.wind.speed}km/h `;
+
+
 }
 
 
@@ -25,6 +36,7 @@ function HandleSearchSubmit(event){
 let searchFormElement= document.querySelector("#search-form");
 searchFormElement.addEventListener("submit",HandleSearchSubmit);
 
+searchCity("Paris");
 
 function formatDate(date) {
     let minutes = date.getMinutes();
