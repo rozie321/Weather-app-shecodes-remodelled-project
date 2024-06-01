@@ -14,7 +14,16 @@ function searchCity(city){
     axios.get(apiUrl).then(refreshWeather);
 }
 
+function HandleSearchSubmit(event){
+    event.preventDefault();
+    let searchInput = document.querySelector("#search-input");
 
+    searchInput(searchInput.value);
+
+}
+
+let searchFormElement= document.querySelector("#search-form");
+searchFormElement.addEventListener("submit",HandleSearchSubmit);
 
 
 function formatDate(date) {
