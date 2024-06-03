@@ -5,11 +5,11 @@ function refreshWeather(response){
     let descriptionElement=document.querySelector("#description");
     let humidityElement=document.querySelector("#humidity");
     let windSpeedElement=document.querySelector("#wind-speed");
-    let timeElement =document.querySelector("#time")
+    //let timeElement =document.querySelector("#time")
     
     
     cityElement.innerHTML=response.data.city;
-    timeElement.innerHTML="Tuesday 14:49";
+   // timeElement.innerHTML="Tuesday 14:49";
     temperatureElement.innerHTML = Math.round(temperature);
     descriptionElement.innerHTML=response.data.condition.description;
     humidityElement.innerHTML=`${response.data.temperature.humidity}% `;
@@ -29,7 +29,7 @@ function HandleSearchSubmit(event){
     event.preventDefault();
     let searchInput = document.querySelector("#search-input");
 
-    searchInput(searchInput.value);
+    searchCity(searchInput.value);
 
 }
 
